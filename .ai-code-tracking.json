@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "records": [
+    {
+      "filePath": "D:/microservices/E-commerce Platform/discovery-server/src/main/java/com/ecommerce/discovery/DiscoveryServerApplication.java",
+      "timestamp": 1762954640251,
+      "startOffset": 0,
+      "endOffset": 78,
+      "codeContent": "package com.ecommerce.discovery;\n\npublic class DiscoveryServerApplication {\n}\n",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 5
+    },
+    {
+      "filePath": "D:/microservices/E-commerce Platform/discovery-server/src/main/java/com/ecommerce/discovery/DiscoveryServerApplication.java",
+      "timestamp": 1762954657159,
+      "startOffset": 34,
+      "endOffset": 438,
+      "codeContent": "import org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;\n\n@SpringBootApplication\n@EnableEurekaServer\npublic class DiscoveryServerApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(DiscoveryServerApplication.class, args);\n    }\n}",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 11
+    }
+  ],
+  "toolStats": {
+    "AI Assistant": {
+      "usageCount": 2,
+      "totalLines": 16
+    }
+  }
+}

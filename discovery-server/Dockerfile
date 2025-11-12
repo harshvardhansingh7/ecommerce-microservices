@@ -1,0 +1,4 @@
+FROM openjdk:17-jdk-slim
+VOLUME /tmp
+COPY target/discovery-server-1.0.0.jar discovery-server.jar
+ENTRYPOINT ["java", "-jar", "/discovery-server.jar"]
