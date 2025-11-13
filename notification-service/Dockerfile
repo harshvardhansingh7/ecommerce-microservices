@@ -1,4 +1,12 @@
-FROM openjdk:17-jdk-slim
-VOLUME /tmp
-COPY target/notification-service-1.0.0.jar notification-service.jar
-ENTRYPOINT ["java", "-jar", "/notification-service.jar"]
+# Stage 1: Build
+FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -pl notification-service -am -DskipTests
+
+# Stage 2: Run
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/notification-service/target/notification-service-*.jar app.jar
+EXPOSE 8087
+ENTRYPOINT ["java", "-jar", "app.jar"]

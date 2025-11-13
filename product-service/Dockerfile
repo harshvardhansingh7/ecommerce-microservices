@@ -1,4 +1,12 @@
-FROM openjdk:17-jdk-slim
-VOLUME /tmp
-COPY target/product-service-1.0.0.jar product-service.jar
-ENTRYPOINT ["java", "-jar", "/product-service.jar"]
+# Stage 1: Build
+FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package -pl product-service -am -DskipTests
+
+# Stage 2: Run
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/product-service/target/product-service-*.jar app.jar
+EXPOSE 8082
+ENTRYPOINT ["java", "-jar", "app.jar"]
