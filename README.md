@@ -11,6 +11,7 @@ A **microservices-based e-commerce backend** built with **Spring Boot 3.x**, **K
 - **Features**
 - **Tech Stack**
 - **Architecture**
+- **CI/CD Pipeline**
 - **Setup Instructions**
 - **API Documentation**
   - **User Service**
@@ -43,6 +44,10 @@ ecommerce-microservices-platform/
 │ ├── 📧 notification-service/
 ├── create-topics.sh
 └── 🐳 docker-compose.yml
+└── workflows/
+  ├── ci-cd-discovery.yml # CI/CD for Discovery Server
+  ├── ci-cd-user.yml # CI/CD for User Service
+  └── ... # Other service pipelines
 ```
 
 ---
@@ -56,6 +61,7 @@ ecommerce-microservices-platform/
 - **Individual Databases** for each service (MySQL / MariaDB)
 - **Messaging & Event Streaming** via Kafka
 - **Dockerized Services** for easy deployment
+- **CI/CD Integration via GitHub Actions** for automated builds and deployments  
 - **RESTful APIs** for all business operations
 - **Notification System** for emails and alerts
 - **Scalable Design** for extending more services easily
@@ -73,6 +79,7 @@ ecommerce-microservices-platform/
 - **Service Discovery:** Netflix Eureka
 - **Build Tool:** Maven
 - **Containerization:** Docker & Docker Compose
+- **CI/CD:** GitHub Actions  
 - **Testing:** JUnit / Mockito
 - **Documentation:** OpenAPI / Swagger
 - **Email Notifications:** SMTP (configurable in environment variables)
@@ -94,7 +101,28 @@ ecommerce-microservices-platform/
 - **Docker Compose** – Orchestrates all services and databases
 
 ---
+## 🧩 CI/CD Pipeline (GitHub Actions)
 
+This project includes **automated CI/CD pipelines** powered by **GitHub Actions**.
+
+**Workflow Overview**
+
+Each microservice (e.g., `discovery-server`, `user-service`, etc.) has a workflow file inside `.github/workflows/`.  
+
+**CI/CD Flow**
+- Triggered on push or PR to a specific service folder
+
+- Builds the microservice using Maven
+
+- Runs unit tests
+
+- Builds Docker image
+
+- Pushes image to DockerHub automatically
+
+This ensures every service is built, tested, and deployed independently — achieving full CI/CD automation.
+
+---
 ## ⚙️ Setup Instructions
 **Prerequisites**
 
