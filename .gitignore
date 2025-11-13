@@ -20,6 +20,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
+# Ignore AI tracking file
+.ai-code-tracking.json
+
 
 ### NetBeans ###
 /nbproject/private/
