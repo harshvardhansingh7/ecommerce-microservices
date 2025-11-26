@@ -11,6 +11,5 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class CartServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(CartServiceApplication.class, args);
-        System.out.println("Cart Service started successfully!");
     }
 }
